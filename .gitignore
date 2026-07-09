@@ -1,0 +1,13 @@
+# Advent of Code asks you not to redistribute puzzle inputs, so keep them local.
+input.txt
+**/input.txt
+
+# Go build artifacts
+*.exe
+*.out
+/bin/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
