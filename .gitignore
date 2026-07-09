@@ -2,6 +2,9 @@
 input.txt
 **/input.txt
 
+# Your AoC session cookie — NEVER commit this.
+.session
+
 # Go build artifacts
 *.exe
 *.out

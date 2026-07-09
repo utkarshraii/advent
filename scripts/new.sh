@@ -24,10 +24,17 @@ mkdir -p "$dir"
 cp "$root/template/main.go"      "$dir/main.go"
 cp "$root/template/main_test.go" "$dir/main_test.go"
 cp "$root/template/sample.txt"   "$dir/sample.txt"
-touch "$dir/input.txt"   # gitignored; paste your puzzle input here
+touch "$dir/input.txt"   # gitignored; filled by scripts/get.sh below
 
 echo "created $dir"
-echo "  1. paste your puzzle input into $year/day$day/input.txt"
-echo "  2. paste the example into      $year/day$day/sample.txt"
-echo "  3. run:  go run ./$year/day$day"
+
+# Auto-download the puzzle input if a session cookie is configured.
+if [[ -s "$root/.session" ]]; then
+	"$root/scripts/get.sh" "$1" "$year" || echo "  (input download failed — see above)"
+else
+	echo "  1. paste your puzzle input into $year/day$day/input.txt"
+	echo "     (or set up scripts/get.sh: put your cookie in .session)"
+fi
+echo "  paste the example into $year/day$day/sample.txt, then:"
+echo "     run:  go run ./$year/day$day"
 echo "     test: go test ./$year/day$day"

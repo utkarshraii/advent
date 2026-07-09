@@ -7,19 +7,14 @@ import (
 )
 
 func TestPart1(t *testing.T) {
-	lines := aoc.ReadLines("sample.txt")
-	got := part1(lines)
-	want := 0 // TODO: expected answer for the sample
+	moves := parse(aoc.ReadInput("sample.txt"))
+	got := part1(moves)
+	want := 3 // dial lands on 0 three times in the example
 	if got != want {
 		t.Errorf("part1 = %d, want %d", got, want)
 	}
 }
 
 func TestPart2(t *testing.T) {
-	lines := aoc.ReadLines("sample.txt")
-	got := part2(lines)
-	want := 0 // TODO: expected answer for the sample
-	if got != want {
-		t.Errorf("part2 = %d, want %d", got, want)
-	}
+	t.Skip("part 2 not unlocked yet")
 }
